@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
         ans = input('Are you continue (yes or no) ? ')
         if ans != 'yes':
-            break;
+            break
     
     print("Bye !, See you again.")
 
