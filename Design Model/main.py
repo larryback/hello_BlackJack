@@ -19,5 +19,9 @@ if __name__ == '__main__':
             break;
     hasattr
     print("Bye !, See you again.")
+<<<<<<< HEAD
+    
+=======
 
 
+>>>>>>> dc5802272e10c2534f1bb86679c1f0f8f35411e4
