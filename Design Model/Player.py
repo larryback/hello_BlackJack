@@ -4,9 +4,10 @@
 from Deck import Deck
 
 class Player:
-    def __init__(self, name):
-        self.name = name
-        self.card = []
+    def __init__(self):
+        self.name = 'Player'
+        self.cards = []
+        self.state = 'stay' # or 'hit'
 
     def fn_hit(self, ):
         pass
@@ -15,19 +16,23 @@ class Player:
         pass
 
     def fn_hit_or_stay(self, ):
-        pass
+        while True:
+            ans = raw_input("Do you hit or stay ('h' or 's') ? ")
+            if 'h' in ans:
+                self.state = 'hit'
+                break
+            elif 's' in ans:
+                self.state = 'stay'
+                break
 
-    def fn_deal(self, show=True):
+    def fn_deal(self, deck, show=True):
         """
         show : True (default) 카드를 보여준다
                False 보여주지 않는다
         """
-        deck.
-        print("{} 카드를 받았습니다.")
-        if show:
-            print("카드는 {} - {}입니다.".format())
-        pass
+        self.cards = deck.fn_deal(1)
+    
+        if show:    print(self.name, self.cards)
+        else:       print(self.name)
 
-    def card_1(self, ):
-        pass
 

@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 class Card:
-    def __init__(self):
-        self.suit = None
-        self.face = None
+    def __init__(self, suit, face):
+        self.suit = suit
+        self.face = face
 

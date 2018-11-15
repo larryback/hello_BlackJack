@@ -12,11 +12,16 @@ class Game:
         self.deck   = Deck()
 
     def fn_start(self, ):
-        print("두장의 카드를 나누어 준다.")
-        self.player.fn_deal() # player's first card
-        self.dealer.fn_deal(False) # dealer's first card
-        self.player.fn_deal() # player's second card
-        self.dealer.fn_deal() # dealer's second card
+        self.player.fn_deal(self.deck) # player's first card
+        self.dealer.fn_deal(self.deck) # dealer's first card
+        self.player.fn_deal(self.deck) # player's second card
+        self.dealer.fn_deal(self.deck, False) # dealer's second card
+
+        ### loop...
+        self.player.fn_hit_or_stay()
+        if self.player.state:
+            pass
+        ###
         pass
 
     def fn_stop(self, ):
