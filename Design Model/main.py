@@ -12,13 +12,12 @@ if __name__ == '__main__':
     
     print("Welcom to Black Jack.")
     while True:
-        blackjack = Game()
-        blackjack.fn_start()
+        Game().fn_start()
 
         ans = raw_input("Are you continue the game('y' or 'n') ? ")
         if 'n' in ans:
             break;
-    
+    hasattr
     print("Bye !, See you again.")
 
 
