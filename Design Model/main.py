@@ -19,6 +19,4 @@ if __name__ == '__main__':
             break;
     hasattr
     print("Bye !, See you again.")
-
-asdfasdf
-
+    
