@@ -17,12 +17,19 @@ class Game:
         self.player.fn_deal(self.deck) # player's second card
         self.dealer.fn_deal(self.deck, False) # dealer's second card
 
-        ### loop...
-        self.player.fn_hit_or_stay()
-        if self.player.state:
-            pass
+        while True:
+            self.player.fn_hit_or_stay()
+            if self.player.state == 'h':
+                self.player.fn_deal(self.deck)
+                continue
+            else:
+                break
+        
+        ### dealer 17 < ?? auto hit or 17 > &&  < 21 ?? auto stay or 21 > die
         ###
-        pass
+
+        if self.player.state == 'stay' and self.dealer.state == 'stay':
+            self.fn_judge(self)
 
     def fn_stop(self, ):
         pass

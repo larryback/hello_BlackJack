@@ -14,12 +14,10 @@ if __name__ == '__main__':
     while True:
         Game().fn_start()
 
-        ans = raw_input("Are you continue the game('y' or 'n') ? ")
+        ans = input("Are you continue the game('y' or 'n') ? ")
         if 'n' in ans:
             break;
     hasattr
     print("Bye !, See you again.")
 
-asdfasdf
-larryback
 

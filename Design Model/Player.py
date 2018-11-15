@@ -17,7 +17,7 @@ class Player:
 
     def fn_hit_or_stay(self, ):
         while True:
-            ans = raw_input("Do you hit or stay ('h' or 's') ? ")
+            ans = input("Do you hit or stay ('h' or 's') ? ")
             if 'h' in ans:
                 self.state = 'hit'
                 break
@@ -33,6 +33,6 @@ class Player:
         self.cards = deck.fn_deal(1)
     
         if show:    print(self.name, self.cards)
-        else:       print(self.name)
+        else:       print(self.name, 'hidden', self.cards)
 
 

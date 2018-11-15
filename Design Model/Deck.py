@@ -9,7 +9,7 @@ class Deck:
         self.__init_deck__()
 
     def __init_deck__(self):
-        self.deck = range(2,15) * 4
+        self.deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * 4
         self.fn_shuffle()
 
     def fn_shuffle(self, ):
