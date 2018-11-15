@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import random
-from Card import Card
+# from Card import Card
 
 class Deck:
     def __init__(self):
@@ -21,7 +21,6 @@ class Deck:
             self.__init_deck__()
             self.fn_shuffle()
 
-        print('카드 {}장을 나누어 주었습니다.'.format(n))
         for i in range(n):
             card = self.deck.pop()
             if card == 11: card = "J"
