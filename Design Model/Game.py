@@ -12,7 +12,6 @@ class Game:
         self.deck   = Deck()
 
     def fn_start(self, ):
-        print("두장의 카드를 나누어 준다.")
         self.player.fn_deal(self.deck) # player's first card
         self.dealer.fn_deal(self.deck) # dealer's first card
         self.player.fn_deal(self.deck) # player's second card
