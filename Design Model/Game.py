@@ -31,9 +31,9 @@ class Game:
         if self.player.state == 'stay' and self.dealer.state == 'stay':
             self.fn_judge(self)
 
-    def fn_stop(self, ):
+    def fn_stop(self):
         pass
 
-    def fn_judge(self, ):
+    def fn_judge(self):
         pass
 
