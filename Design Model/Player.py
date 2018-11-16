@@ -7,7 +7,6 @@ class Player:
     def __init__(self):
         self.name = 'Player'
         self.cards = []
-        self.state = 'stay' # or 'hit'
 
     def fn_hit(self, ):
         pass
@@ -19,11 +18,9 @@ class Player:
         while True:
             ans = input("Do you hit or stay ('h' or 's') ? ")
             if 'h' in ans:
-                self.state = 'hit'
-                break
+                return 'hit'
             elif 's' in ans:
-                self.state = 'stay'
-                break
+                return 'stay'
 
     def fn_deal(self, deck, show=True):
         """
