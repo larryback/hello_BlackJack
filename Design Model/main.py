@@ -19,3 +19,8 @@ if __name__ == '__main__':
             break;
     print("Bye !, See you again.")
     
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b940cdad461ad3bb87290bf7f76f970da1bc7f1b
