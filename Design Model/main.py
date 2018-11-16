@@ -17,10 +17,6 @@ if __name__ == '__main__':
         ans = input("Are you continue the game('y' or 'n') ? ")
         if 'n' in ans:
             break;
+    hasattr
     print("Bye !, See you again.")
     
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b940cdad461ad3bb87290bf7f76f970da1bc7f1b
