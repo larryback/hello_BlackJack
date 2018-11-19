@@ -9,60 +9,73 @@ class Game:
     def __init__(self):
         self.dealer = Dealer()
         self.player = Player()
-        self.deck   = Deck()
+        self.deck   = Deck(1)
 
-    def fn_start(self, ):
-        self.player.fn_deal(self.deck) # player's first card
-        self.dealer.fn_deal(self.deck) # dealer's first card
-        self.player.fn_deal(self.deck) # player's second card
-        self.dealer.fn_deal(self.deck, False) # dealer's second card
+    def initial_cards(self):
+        self.player.hand.append(self.deck.deal_card())
+        self.dealer.hand.append(self.deck.deal_card())
+        self.player.hand.append(self.deck.deal_card())
+        self.dealer.hand.append(self.deck.deal_card())
+        return [self.dealer.hand, self.player.hand]
+
+    def fn_start(self):
+        self.initial_cards()
+        print("dealer : ", self.dealer.hand)
+        print("player : ", self.player.hand)
 
         while True:
-            state = self.player.fn_hit_or_stay()
+            if input("Hit or Stay ?") == 'h':
+                self.hit_player_cards()
+                print("dealer : ", self.dealer.hand)
+                print("player : ", self.player.hand)
+            else:
+                break;
 
-            if state == 'hit':
-                self.player.fn_deal(self.deck)
-                continue
-            else: break
-        
-        ### dealer 17 < ?? auto hit or 17 > &&  < 21 ?? auto stay or 21 > die
-        ###
+        self.hit_dealer_cards()
+
+        dealer_score = self.hand_points(self.dealer.hand)
+        print(dealer_score)
+
+        player_score = self.hand_points(self.player.hand)
+        print(player_score)
+
+    def hit_player_cards(self):
+        total = self.hand_points(self.player.hand)
+        if total < 21:
+            self.player.hand.append(self.deck.deal_card())
+        else:
+            print('dealer WIN!!!')
+
+        return [self.dealer.hand, self.player.hand]
+
+    def hit_dealer_cards(self):
         while True:
-            score = self.check_total_score(self.dealer)
-            if(score < 17):
-                self.player.fn_deal(self.deck)
-                continue
-            else: break
+            total = self.hand_points(self.dealer.hand)
+            if total > 21:
+                print('player WIN!!!')
+                break
+            if total < 17:
+                self.dealer.hand.append(self.deck.deal_card())
+                print(self.dealer.hand)
+                total = self.hand_points(self.dealer.hand)
+            else:
+                break
+                
+        return [self.dealer.hand, self.player.hand]
 
-        if self.player.state == 'stay' and self.dealer.state == 'stay':
-            self.fn_judge(self)
 
-    def check_total_score(self, gamer):
-        score = 0
-        for card in gamer.cards:
-            if card in "JQK":
-                card = 10
+    def hand_points(self, hand):
+        total = 0
+        for cards in hand:
+            total += cards.getpoint()
 
-            elif card == "A":
-                ans = input("Do you select 1 or 11 ?") # TODO::
-                card = int(ans)
+        if total > 21:
+            for cards in hand:
+                if cards.getrank() == 'A':
+                    total -= 10
+                    if total <= 21:
+                        break
+        return total
 
-            score += card
-        
-        return score
 
-    def fn_stop(self):
-        pass
-
-    def fn_judge(self):
-        dealer_score = self.check_total_score(self.dealer)
-        player_score = self.check_total_score(self.player)
-
-        print('Now, Start judged !!!')
-        if(dealer_score > 21): print('WIN the player!!!')
-        if(player_score > 21): print('WIN the dealer!!!')
-        if(player_score > dealer_score): print('WIN the player!!!')
-        else:print('WIN the dealer!!!')
-        
-        self.fn_stop()
 
