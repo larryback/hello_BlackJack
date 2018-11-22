@@ -17,13 +17,18 @@ class Deck():
 				self.deck.append(Card(str(key), s, rank[key]))
 				
 		#create shoe dictionary
+		self.reset_shoe(size)
+
+		#print(list(self.shoe))
+
+	def reset_shoe(self, size = 1):
 		self.shoe = {}
 		for card in self.deck:
 			self.shoe[card] = size
-
+	
 	def deal_card(self):
 		'''deals a card from the deck'''
-		onecard = choice(list(self.shoe.keys()))
+		onecard = choice(list(self.shoe.keys()))  
 
 		if self.shoe[onecard] == 0:
 			return self.deal_card()

@@ -18,6 +18,9 @@ class Game:
         self.dealer.hand.append(self.deck.deal_card())
         return [self.dealer.hand, self.player.hand]
 
+      
+
+
     def fn_start(self):
         self.initial_cards()
         print("dealer : ", self.dealer.hand)
@@ -29,15 +32,23 @@ class Game:
                 print("dealer : ", self.dealer.hand)
                 print("player : ", self.player.hand)
             else:
-                break;
+                break
 
         self.hit_dealer_cards()
 
         dealer_score = self.hand_points(self.dealer.hand)
-        print(dealer_score)
+        print("Current Dealer's score=", dealer_score)
 
         player_score = self.hand_points(self.player.hand)
-        print(player_score)
+        print("Current Player's score=", player_score)
+
+        # if dealer_score < 21 and player_score < 21:
+        if dealer_score == player_score:
+            print("It's a draw!")
+        elif dealer_score > player_score:
+            print("Dealer Win!")
+        else:
+            print("Player Win!")
 
     def hit_player_cards(self):
         total = self.hand_points(self.player.hand)

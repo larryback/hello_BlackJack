@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import sys, os
+#yimport sys, os
 from Game import Game
 
 if __name__ == '__main__':
@@ -12,10 +12,14 @@ if __name__ == '__main__':
     
     print("Welcom to Black Jack.")
     while True:
-        Game().fn_start()
+        game = Game()
+        game.fn_start()
 
-        ans = input("Are you continue the game('y' or 'n') ? ")
-        if 'n' in ans:
+        ans = input("Do you continue the game('y' or 'n') ? ")
+        if 'y' in ans:
+            game.deck.reset_shoe()
+        
+        else:
             break
     print("Bye !, See you again.")
     
